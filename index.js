@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 require('dotenv').config()
 const PORT = process.env.port || 4000;
+const fileupload = require("express-fileupload");
+app.use(express.urlencoded());
+app.use(express.json());
+app.use(fileupload());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header("Access-Control-Allow-Methods", "PUSH, POST, GET");
