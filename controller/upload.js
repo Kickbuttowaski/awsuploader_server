@@ -30,7 +30,7 @@ module.exports.getObject = async (req, res) => {
       Key: req.query.filename,
     });
     let data = await executeCommand(command);
-    res.attachment("test.pdf"); // set file name
+    res.attachment(req.query.filename); // set file name
     res.type(data.ContentType); // set file type
     const bodyContents = await streamToString(data.Body);
     res.send(bodyContents);

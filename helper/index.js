@@ -3,7 +3,7 @@ const streamToString = (stream) =>
       const chunks = [];
       stream.on("data", (chunk) => chunks.push(chunk));
       stream.on("error", reject);
-      stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+      stream.on("end", () => resolve(Buffer.concat(chunks)));
     });
 const getFilename = (fname)=>{
     let extensionIndex = fname.lastIndexOf('.')
